@@ -1,8 +1,9 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core'
 
-import screenfull from 'screenfull';
+import screenfull from 'screenfull'
 
 @Directive({
+  standalone: true,
   selector: '[appToggleFullScreen]'
 })
 export class ToggleFullScreenDirective {
@@ -13,21 +14,21 @@ export class ToggleFullScreenDirective {
   @HostListener('click')
   onClick() {
     if (screenfull.isEnabled) {
-      this.elements.nativeElement.querySelector('.feather').classList.toggle('icon-maximize');
-      this.elements.nativeElement.querySelector('.feather').classList.toggle('icon-minimize');
-      screenfull.toggle();
+      this.elements.nativeElement.querySelector('.feather').classList.toggle('icon-maximize')
+      this.elements.nativeElement.querySelector('.feather').classList.toggle('icon-minimize')
+      screenfull.toggle()
     }
 
     if (isScreenFull(screenfull)) {
       if (screenfull.isFullscreen) {
-        screenfull.exit();
+        screenfull.exit()
       } else {
-        screenfull.request();
+        screenfull.request()
       }
     }
   }
 }
 
 function isScreenFull(sf: any): any {
-  return sf.isFullscreen;
+  return sf.isFullscreen
 }

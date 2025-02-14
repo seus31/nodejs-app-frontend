@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Component, Input } from '@angular/core'
+import { RouterModule, Router } from '@angular/router'
+import { Title } from '@angular/platform-browser'
 
-import { NavigationItem } from '../../../layout/admin/navigation/navigation';
+import { NavigationItem } from '../../../layout/admin/navigation/navigation'
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -12,37 +12,37 @@ import { NavigationItem } from '../../../layout/admin/navigation/navigation';
   styleUrl: './breadcrumbs.component.scss'
 })
 export class BreadcrumbsComponent {
-  @Input() type: string;
+  @Input() type: string
 
-  navigation: any;
-  breadcrumbList: Array<any> = [];
-  navigationList: any;
+  navigation: any
+  breadcrumbList: Array<any> = []
+  navigationList: any
 
   constructor(
     private _router: Router,
     public nav: NavigationItem,
     private titleService: Title
   ) {
-    this.navigation = this.nav.get();
-    this.setBreadcrumb();
+    this.navigation = this.nav.get()
+    this.setBreadcrumb()
   }
 
   setBreadcrumb() {
-    let routerUrl: string;
+    let routerUrl: string
     this._router.events.subscribe((router: any) => {
-      routerUrl = router.urlAfterRedirects;
+      routerUrl = router.urlAfterRedirects
       if (routerUrl && typeof routerUrl === 'string') {
-        this.breadcrumbList.length = 0;
-        const activeLink = router.url;
-        this.filterNavigation(activeLink);
+        this.breadcrumbList.length = 0
+        const activeLink = router.url
+        this.filterNavigation(activeLink)
       }
-    });
+    })
   }
 
   filterNavigation(activeLink) {
-    activeLink = (activeLink === '/' || activeLink === '/dashboard') ? '/dashboard/home' : activeLink;
-    let result: any;
-    let title = 'Welcome';
+    activeLink = (activeLink === '/' || activeLink === '/dashboard') ? '/dashboard/home' : activeLink
+    let result: any
+    let title = 'Welcome'
     this.navigation.forEach(function (a) {
       if (a.type === 'item' && 'url' in a && a.url === activeLink) {
         result = [
@@ -52,8 +52,8 @@ export class BreadcrumbsComponent {
             breadcrumbs: 'breadcrumbs' in a ? a.breadcrumbs : true,
             type: a.type
           }
-        ];
-        title = a.title;
+        ]
+        title = a.title
       } else {
         if (a.type === 'group' && 'children' in a) {
           a.children.forEach(function (b) {
@@ -65,8 +65,8 @@ export class BreadcrumbsComponent {
                   breadcrumbs: 'breadcrumbs' in b ? b.breadcrumbs : true,
                   type: b.type
                 }
-              ];
-              title = b.title;
+              ]
+              title = b.title
             } else {
               if (b.type === 'collapse' && 'children' in b) {
                 b.children.forEach(function (c) {
@@ -84,17 +84,17 @@ export class BreadcrumbsComponent {
                         breadcrumbs: 'breadcrumbs' in c ? c.breadcrumbs : true,
                         type: c.type
                       }
-                    ];
-                    title = c.title;
+                    ]
+                    title = c.title
                   }
-                });
+                })
               }
             }
-          });
+          })
         }
       }
-    });
-    this.navigationList = result;
-    this.titleService.setTitle(title + ' | Node.js App');
+    })
+    this.navigationList = result
+    this.titleService.setTitle(title + ' | Node.js App')
   }
 }

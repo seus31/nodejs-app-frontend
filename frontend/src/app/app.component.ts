@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { SharedModule } from './theme/shared/shared.module';
+import { Component, OnInit } from '@angular/core'
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router'
+import { SharedModule } from './theme/shared/shared.module'
 
 @Component({
   selector: 'app-root',
@@ -13,16 +13,16 @@ import { SharedModule } from './theme/shared/shared.module';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'frontend';
+  title = 'Node App Frontend'
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
-        return;
+        return
       }
-      window.scrollTo(0, 0);
-    });
+      window.scrollTo(0, 0)
+    })
   }
 }

@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
-import { NavLeftComponent } from './nav-left/nav-left.component';
-import { NavRightComponent } from './nav-right/nav-right.component';
+import { Component, EventEmitter, Output } from '@angular/core'
+import { RouterLink } from '@angular/router'
+import { NgClass } from '@angular/common'
+import { NavLeftComponent } from './nav-left/nav-left.component'
+import { NavRightComponent } from './nav-right/nav-right.component'
 
 @Component({
   selector: 'app-nav-bar',
@@ -18,16 +18,16 @@ import { NavRightComponent } from './nav-right/nav-right.component';
 })
 export class NavBarComponent {
   // public props
-  @Output() NavCollapsedMob = new EventEmitter();
-  navCollapsedMob = false;
-  headerStyle: string = '';
-  menuClass: boolean = false;
-  collapseStyle: string = 'none';
+  @Output() NavCollapsedMob = new EventEmitter()
+  navCollapsedMob = false
+  headerStyle: string = ''
+  menuClass: boolean = false
+  collapseStyle: string = 'none'
 
   // public method
   toggleMobOption() {
-    this.menuClass = !this.menuClass;
-    this.headerStyle = this.menuClass ? 'none' : '';
-    this.collapseStyle = this.menuClass ? 'block' : 'none';
+    this.menuClass = !this.menuClass
+    this.headerStyle = this.menuClass ? 'none' : ''
+    this.collapseStyle = this.menuClass ? 'block' : 'none'
   }
 }

@@ -8,4 +8,4 @@ export const Spinkit = {
   skWanderingCubes: 'sk-wandering-cubes',
   skWave: 'sk-wave',
   skLine: 'sk-line-material'
-};
+}

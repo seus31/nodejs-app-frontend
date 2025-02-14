@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NgbDropdown, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap';
-import { NavSearchComponent } from './nav-search/nav-search.component';
+import { Component } from '@angular/core'
+import { NgbDropdown, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap'
+import { NavSearchComponent } from './nav-search/nav-search.component'
 
 @Component({
   selector: 'app-nav-left',

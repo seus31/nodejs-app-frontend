@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgbDropdown, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core'
+import { NgbDropdown, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-nav-right',
