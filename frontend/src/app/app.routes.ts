@@ -1,7 +1,7 @@
-import { Routes } from '@angular/router';
-import { AdminComponent } from './theme/layout/admin/admin.component';
-import { GuestComponent } from './theme/layout/guest/guest.component';
-import { AuthGuard } from './auth.guard';
+import { Routes } from '@angular/router'
+import { AdminComponent } from './theme/layout/admin/admin.component'
+import { GuestComponent } from './theme/layout/guest/guest.component'
+import { AuthGuard } from './auth.guard'
 
 export const routes: Routes = [
   {
@@ -14,7 +14,7 @@ export const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'home',
+        path: '',
         loadChildren: () => import('./components/pages/dashboard/dashboard.module').then((m) => m.DashboardModule)
       }
     ],
@@ -32,5 +32,4 @@ export const routes: Routes = [
   },
   { path: '', redirectTo: '/dashboard/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard/home' }
-];
-
+]
